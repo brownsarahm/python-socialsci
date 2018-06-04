@@ -1,6 +1,6 @@
 ---
 layout: exercise
-name: notebook
+name: print
 episode: 02-basics
 solution: "Type 'print' into a code cell and then type `shift`+`tab`. The following pop-up should appear.
 

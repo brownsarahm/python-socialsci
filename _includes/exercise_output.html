@@ -1,0 +1,2 @@
+{% assign cur_ex = site.exercises | where:"name", {{ include.names }} | first %}
+{{cur_ex.output}}

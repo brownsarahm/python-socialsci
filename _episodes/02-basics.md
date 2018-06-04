@@ -130,6 +130,8 @@ Arithmetic expressions can be arbitrarily complex, but remember people have to r
 {% assign cur_ex = site.exercises | where:"name", "notebook" | first %}
 {{cur_ex.output}}
 
+<!-- {% include exercise_output.html name="notebook" %} -->
+
 ## Using built-in functions
 
 Python has a reasonable number of built-in functions. You can find a complete list in the [official documentation](https://docs.python.org/3/library/functions.html)
@@ -140,18 +142,9 @@ For any function, a common question to ask is; What parameters does this functio
 
 In order to answer this from Jupyter, you can type the function name and then type `shift`+`tab` and a pop-up window will provide you with various details about the function including the parameters.
 
-> ## Exercise
->
-> For the print function find out what parameters can be provided
->
-> > ## Solution
-> > Type 'print' into a code cell and then type `shift`+`tab`. The following pop-up should appear.
-> >
-> > ![Print parameter information](../fig/Python_function_parameters_9.png)
-> >
-> >
-> {: .solution}
-{: .challenge}
+{% assign cur_ex = site.exercises | where:"name", "print" | first %}
+{{cur_ex.output}}
+
 
 ## Getting Help for Python
 
@@ -415,60 +408,7 @@ bool_val is True
 ~~~
 {: .output}
 
-> ## Exercise
->
-> Can you predict what will be returned from the following code segments
->
-> ~~~
-> bool_val1 = 'TRUE'
-> if bool_val1 :
->     print("bool_val1 is",bool_val1)
->     
-> bool_val2 = 'FALSE'
-> if bool_val2 :
->     print("bool_val2 is",bool_val2)
->
-> bool_val3 = 1
-> if bool_val3:
->     print("bool_val3 is",bool_val3)
-> ~~~
-> {: .language-python}
-{: .challenge}
-
-> ## Exercise
->
-> Try to predict what will print for each of the following. Then run the code and summarize
-> your findings about what how to represent boolean values and how other values cast to
-> boolean type in either a markdown cell or a comment
->
-> ~~~
-> bool_val1 = 'TRUE'
-> print(type(bool_val1))
-> print(bool(bool_val1))
->     
-> bool_val2 = 'FALSE'
-> print(bool(bool_val2))
->
-> bool_val3 = 1
-> print(bool(bool_val3))
->
-> bool_val4 = 0
-> print(bool(bool_val4))
->
-> bool_val5 = -1
-> print(bool(bool_val5))
->
-> bool_val6 = -1
-> print(bool(bool_val6))
-> ~~~
-> {: .language-python}
->
-> > ## Solution
-> >
-> >  0 is represented as False and everything else, whether a number or string is counted as True
-> >
-> {: .solution}
-{: .challenge}
+{{ex.outp}}
 
 ## Structured datatypes
 
