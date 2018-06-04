@@ -49,6 +49,7 @@ start_time: 0
 # Specify that things in the episodes collection should be output.
 collections:
   exercises:
+    output: true
   episodes:
     output: true
     permalink: /:path/

@@ -492,22 +492,5 @@ When you specify 3 parameters as we have for list(7); the first is start value, 
 
 `list7` produces the even numbers from 1 to 10.
 
-> ## Exercise
->
-> 1. What is produced if you change the step value in `list7` to -2 ? Is this what you expected?
-> 2. Create a list using the range() function which contains the even number between 1 and 10 in reverse order ([10,8,6,4,2])
->
-> > ## Solution
-> >
-> > ~~~
-> > list7 = list(range(2, 11, -2))
-> > print(list7)
-> >
-> > list8 = list(range(10, 1, -2))
-> > print(list8)
-> > ~~~
-> > {: .language-python}
-> {: .solution}
-{: .challenge}
 
 The other main structured data type is the Dictionary. We will introduce this in a later episode when we look at JSON.
