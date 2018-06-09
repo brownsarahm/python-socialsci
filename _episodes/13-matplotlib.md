@@ -89,7 +89,7 @@ plt.show ()
 >
 > > ## Solution
 > >
-> > Most importantly the data in the graphs is the same. There are cosmetic differentces in the scale points in the x and y axis and in the width of the bars.
+> > Most importantly the data in the graphs is the same. There are cosmetic differences in the scale points in the x and y axis and in the width of the bars.
 > >
 > > The width of the bars can be changed with a parameter in the 'bar' function
 > >
@@ -183,44 +183,9 @@ plt.show()
 In the call to the `scatter` method, the `label` parameter values are used by the 'legend'.
 The 'c' or 'color' parameter can be set to any color matplotlib recognises. Full details of the available colours are available in the [matplotlib](http://matplotlib.org/api/colors_api.html) website.  The [markers](http://matplotlib.org/api/markers_api.html) section will tell you what markers you can use instead of the default 'dots'. There is also an s (size) parameter which allows you to change the size of the marker.
 
-> ## Exercise
->
-> In the scatterplot the s parameter determines the size of the dots. s can be a simple numeric value, say s=100, which will produce dots all of the same size. However you can pass a list of values (or a pandas Series) to provide sizes for the individual dots. This approach is very common as it allows us to provide an extra variable worth of information on the graph.
->
-> 1. Modify the code we used for the scatter plot to include a size value for each of the points in the series being plotted.
->
-> The downside is that some of the smaller dots may be completely covered by the larger dots. To try and highlight when this has happened we can change the opacity of the dots.
->
-> 2. Find out which parameter controls the opacity of the dots ( clue - it is not called opacity), add it to you code and set it > to a reasonable value .
->
-> > ## Solution
-> >
-> > ~~~
-> > # Generate some data for 2 sets of points.
-> > # and additional data for the sizes - suitably scaled
-> > x1 = pd.Series(np.random.rand(20) - 0.5 )
-> > y1 = pd.Series(np.random.rand(20) - 0.5 )
-> > z1 = pd.Series(np.random.rand(20)*200 )
-> >
-> > x2 = pd.Series(np.random.rand(20) + 0.5 )
-> > y2 = pd.Series(np.random.rand(20) + 0.5 )
-> > z2 = pd.Series(np.random.rand(20)*200 )
-> >
-> > # Add some features
-> > plt.title('Scatter Plot')
-> > plt.ylabel('Range of y values')
-> > plt.xlabel('Range of x values')
-> >
-> > # plot the points in a scatter plot
-> > plt.scatter(x1,y1, c='red', label='Red Range', s=z1, alpha=0.5 )  # 's' parameter is the dot size
-> > plt.scatter(x2,y2, c='blue', label='Blue Range', s=z2, alpha=0.5) # 'alpha' is the opacity
-> >
-> > plt.legend( loc=4 )
-> > plt.show()
-> > ~~~
-> > {: .language-python}
-> {: .solution}
-{: .challenge}
+{% assign cur_ex = site.exercises | where:"keyword", "scattersize" | first %}
+{{cur_ex.output}}
+
 
 ## Boxplot
 

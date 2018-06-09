@@ -207,40 +207,8 @@ fw.write(fr.readline())
 
 before the for loop
 
-> ## Exercise
->
-> From the SAFI_results.csv file extract all of the records where the C01_respondent_roof_type (index 18) has a value of 'grass' and the C02_respondent_wall_type (index 19) has a value of 'muddaub' and write them to a file. Within the same program write all of the records where C01_respondent_roof_type (index 18) has a value of 'grass' and the C02_respondent_wall_type (index 19) has a value of 'burntbricks' and write them to a separate file. In both files include the header record.
->
-> > ## Solution
-> >
-> > ~~~
-> > filename = "SAFI_results.csv"
-> > fr = open(filename, "r")
-> >
-> > filename = "SAFI_grass_roof_muddaub.csv"
-> > fw1 = open(filename, "w")
-> > filename = "SAFI_grass_roof_burntbricks.csv"
-> > fw2 = open(filename, "w")
-> >
-> > headerline = fr.readline()
-> > fw1.write(headerline)
-> > fw2.write(headerline)
-> >
-> > for line in fr:
-> >     if line.split(",")[18] == 'grass' :
-> >         if line.split(",")[19] == 'muddaub' :
-> >             fw1.write(line)
-> >         if line.split(",")[19] == 'burntbricks' :
-> >             fw2.write(line)    
-> >
-> > fr.close()
-> > fw1.close()
-> > fw2.close()
-> > ~~~
-> > {: .language-python}
-> >
-> {: .solution}
-{: .challenge}
+{% assign cur_ex = site.exercises | where:"keyword", "roof_wall" | first %}
+{{cur_ex.output}}
 
 
 In our example of printing the counts for the roof types, we assumed that we knew what the likely roof types were. Although we did have an 'other' option to catch anything we missed. Had there been any we would still be non the wiser as to what they  represented. We were able to decide on the specific roof types by manually scanning the list of C01_respondent_roof_type values. This was only practical because of the small file size. For a multi-million record file we could not have done this.
@@ -319,47 +287,10 @@ already exists
 ~~~
 {: .output}
 
-> ## Exercise
->
-> 1. Create a dictionary called `dict_roof_types` with initial keys of `type1` and `type2` and give them values of 1 and 3.
-> 2. Add a third key `type3` with a value of '6'.
-> 3. Add code to check if a key of `type4` exists. If it does not add it to the dictionary with a value of 1 if it does, increment its value by 1
-> 4. Add code to check if a key of `type2` exists. If it does not add it to the dictionary with a value of 1 if it does, increment its value by 1
-> 5. Print out all of the keys and values from the dictionary
->
-> > ## Solution
-> >
-> > ~~~
-> >
-> > # 1
-> > dict_roof_types = {'type1' : 1 , 'type2' : 3}
-> >
-> > # 2
-> > dict_roof_types['type3'] = 6
-> >
-> > # 3
-> > key = 'type4'
-> > if key in dict_roof_types :
-> >     dict_roof_types[key] += 1
-> > else :
-> >     dict_roof_types[key] = 1
-> >
-> > # 4
-> > key = 'type2'
-> > if key in dict_roof_types :
-> >     dict_roof_types[key] += 1
-> > else :
-> >     dict_roof_types[key] = 1
-> >  
-> > # 5
-> > for item in dict_roof_types:
-> >     print(item, "=", dict_roof_types[item])
-> >     
-> > ~~~
-> > {: .language-python}
-> >
-> {: .solution}
-{: .challenge}
+
+{% assign cur_ex = site.exercises | where:"keyword", "dictionary" | first %}
+{{cur_ex.output}}
+
 
 We are now in a position to re-write our count of roof types example without knowing in advance what any of the roof types are.
 

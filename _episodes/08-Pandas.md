@@ -56,7 +56,7 @@ There are 2 main data structure used by pandas, they are the Series and the Data
 
 We will mainly be looking at the Dataframe.
 
-We can easily create a Pandas dataframe by reading a .csv file
+We can create a Pandas dataframe by reading a .csv file
 
 ## Reading a csv file
 
@@ -126,11 +126,10 @@ df_SN7577.head()
 ~~~
 {: .language-python}
 
-> ## Exercise
->
-> 1. As well as the `head()` method there is a `tail()` method. What do you think it does? Try it.
-> 2. Both methods accept a single numeric parameter. What do you think it does? Try it.
-{: .challenge}
+
+{% assign cur_ex = site.exercises | where:"keyword", "headtail" | first %}
+{{cur_ex.output}}
+
 
 You can obtain other basic information about your dataframe of data  with:
 
@@ -166,16 +165,6 @@ Length: 202, dtype: object
 ~~~
 {: .output}
 
-> ## Exercise
->
-> When we asked for the column names and their datatypes, the output was abridged, i.e. we didn't get the values for all of the columns. Can you write a small piece of code which will return all of the values
->
-> > ## Solution
-> >
-> > ~~~
-> > for name in df_SN7577.columns:
-> >     print(name)
-> > ~~~
-> > {: .language-python}
-> {: .solution}
-{: .challenge}
+
+{% assign cur_ex = site.exercises | where:"keyword", "dfinfo" | first %}
+{{cur_ex.output}}

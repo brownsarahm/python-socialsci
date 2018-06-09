@@ -15,7 +15,9 @@ objectives:
 - 'Add columns to a data frame'
 - 'Analyse datasets having missing/null values'
 keypoints:
-- 'First key point.'
+- 'Indexing is how to access data in a list or dataframe'
+- 'Using numbers inside square brackets allows indexing'
+- 'iloc allows '
 
 ---
 
@@ -84,24 +86,9 @@ Q1  Q2  Q3
 ...
 ~~~
 {: .language-python}
-> ## Exercise  
->
-> What happens if you:
->
-> 1. List the columns you want out of order from the way they appear in the file?
-> 2. Put the same column name in twice?
-> 3. Put in a non-existing column name? (a.k.a Typo)
->
-> > ## Solution
-> >
-> > ~~~
-> > print(df_SN7577[['Q3', 'Q2']])
-> > print(df_SN7577[['Q3', 'Q2', 'Q3']])
-> > print(df_SN7577[['Q33', 'Q2']])
-> > ~~~
-> > {: .language-python}
-> {: .solution}
-{: .challenge}
+
+
+
 
 ## Filtering by Rows
 
@@ -114,22 +101,8 @@ df_SN7577_some_rows
 ~~~
 {: .language-python}
 
-> ## Exercise
->
-> What happens if we ask for a single row instead of a range?
->
-> > ## Solution
-> >
-> > ~~~
-> > df_SN7577[1]
-> > ~~~
-> > {: .language-python}
-> >
-> > You get an error if you only specify '1'. You need to use ':1' or '0:1' to get the first row returned. The ':' is always required. You can use ':' by itself to return all of the rows
-> >
-> {: .solution}
-{: .challenge}
-
+{% assign cur_ex = site.exercises | where:"keyword", "index" | first %}
+{{cur_ex.output}}
 
 ## Using criteria to filter rows
 

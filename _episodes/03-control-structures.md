@@ -104,26 +104,10 @@ In the examples above there are three things to notice;
 
 In the last example, notice that in Python the operator used to check equality is ‘==’.
 
-> ## Exercise
->
-> Add another if statement to example two that will check if b is greater than or equal to a
->
-> > ## Solution
-> >
-> > ~~~
-> > print("\nExample 2a\n")
-> >
-> > a= 3
-> > b= 4
-> > print("a is", a, "b is",b)
-> > if a > b :
-> >     print(a, "is bigger than ", b)
-> > if a <= b :
-> >     print(b, "is bigger than or equal to ", a)
-> > ~~~
-> > {: .language-python}
-> {: .solution}
-{: .challenge}
+
+
+{% assign cur_ex = site.exercises | where:"keyword", "ifoperator" | first %}
+{{cur_ex.output}}
 
 Instead of using two separate `if` statements to decide which is larger we can use the `if ... else ...` construct
 
@@ -219,78 +203,10 @@ Points to note;
 6. We called our variable `cur_sum` and not `sum` because `sum` is a builtin function (try typing it in, notice the editor
 changes it to green).  If we define `sum = 0` now we can't use the function `sum` in this python session.
 
-> ## Exercise - Things that can go wrong with while loops
->
-> In the examples below, without running them try to decide why we will not get the required answer.
-> Run each, one at a time, and then correct them. Remember that when the input next to a notebook cell
-> is [*] your python interpreter is still working.
->
-> ~~~
-> # while loop - summing the numbers 1 to 10
-> n = 10
-> cur_sum = 0
-> # sum of n  numbers
-> i = 0
-> while  i <= n :
->     i = i + 1
->     cur_sum = cur_sum + i
->     
-> print("The sum of the numbers from 1 to", n, "is ", cur_sum)
-> ~~~
-> {: .language-python}
->
-> ~~~
-> # while loop - summing the numbers 1 to 10
-> n = 10
-> cur_sum = 0
-> boolvalue = False
-> # sum of n  numbers
-> i = 0
-> while  i <= n and boolvalue:
->     cur_sum = cur_sum + i
->     i = i + 1
->     
-> print("The sum of the numbers from 1 to", n, "is ", cur_sum)
-> ~~~
-> {: .language-python}
->
-> ~~~
-> # while loop - summing the numbers 1 to 10
-> n = 10
-> cur_sum = 0
-> # sum of n  numbers
-> i = 0
-> while  i != n :
->     cur_sum = cur_sum + i
->     i = i + 1
->
-> print("The sum of the numbers from 1 to", n, "is ", cur_sum)
-> ~~~
-> {: .language-python}
->
-> ~~~
-> # while loop - summing the numbers 1.1 to 9.9 i. steps of 1.1
-> n = 9.9
-> cur_sum = 0
-> # sum of n  numbers
-> i = 0
-> while  i != n :
->     cur_sum = cur_sum + i
->     i = i + 1.1
->     print(i)
->     
-> print("The sum of the numbers from 1.1 to", n, "is ", sum)
-> ~~~
-> {: .language-python}
->
-> > ## Solution
-> >
-> > 1. Because i is incremented before the sum, you are summing 1 to 11.
-> > 2. The Boolean value is set to False the loop will never be executed.
-> > 3. When i does equal 10 the expression is False and the loop does not execute so we have only summed 1 to 9
-> > 4. Because you cannot guarantee the internal representation of Float, you should never try to compare them for equality. In this particular case the i never 'equals' n and so the loop never ends. - If you did try running this, you can stop it using <kbd>Ctrl</kbd>+<kbd>c</kbd> in a terminal or going to the kernel menu of a notebook and choosing interrupt.
-> {: .solution}
-{: .challenge}
+
+{% assign cur_ex = site.exercises | where:"keyword", "while" | first %}
+{{cur_ex.output}}
+
 
 
 
@@ -415,29 +331,5 @@ dog
 ~~~
 {: .output}
 
-> ## Exercise
->
-> In example8 the split method is used to break the `longString` variable down into a list of individual words which are then iterated through.
->
-> Suppose that we have a string containing a set of 4 different values separated by ','  like this;
->
-> ~~~
-> variablelist = "01/01/2010,34.5,Yellow,True"
-> ~~~
-> {: .language-python}
->
-> Research the `split()` method and then rewrite example 8 so that it prints the 4 components of `variablelist`
->
-> > ## Solution
-> >
-> > ~~~
-> > variablelist = "01/01/2010,34.5,Yellow,True"
-> > for word in variablelist.split(",") :
-> >     print(word)
-> > ~~~
-> > {: .language-python}
-> >
-> > The format of `variablelist` is very much like that of a record in a csv file. In later episodes we will see how we can extract these values and assign them to variables for further processing rather than printing them out.
-> >
-> {: .solution}
-{: .challenge}
+{% assign cur_ex = site.exercises | where:"keyword", "for" | first %}
+{{cur_ex.output}}

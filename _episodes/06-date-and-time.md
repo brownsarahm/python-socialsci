@@ -144,7 +144,7 @@ formatted end time 17:29:08
 ## Components of dates and times
 
 For a date or time we can also extract individual components of them.
-They are held internally in the datetime datastructure.
+They are held internally in the datetime data structure.
 
 ~~~
 # date parts.
@@ -189,9 +189,6 @@ print(type(datetime_start))
 print(type(date_diff))
 print(date_diff)
 
-date_diff = datetime_start - datetime_end
-print(type(date_diff))
-print(date_diff)
 ~~~
 {: .language-python}
 
@@ -199,15 +196,15 @@ print(date_diff)
 <class 'datetime.datetime'>
 <class 'datetime.timedelta'>
 10 days, 7:39:11
-<class 'datetime.timedelta'>
--11 days, 16:20:49
+
 ~~~
 {: .output}
 
-> ## Exercise
->
-> How do you interpret the last result?
-{: .challenge}
+
+{% assign cur_ex = site.exercises | where:"keyword", "datemath" | first %}
+{{cur_ex.output}}
+
+
 
 The code below calculates the time difference between supposedly starting the survey and ending the survey (for each respondent).
 
@@ -250,36 +247,6 @@ f.close()
 ~~~
 {: .output}
 
-> ## Exercise
->
-> 1. In the SAFI_results.csv file the A01_interview_date field (index 1) contains a date in the form of 'dd/mm/yyyy'. Read the file and calculate the differences in days (because the interview date is only given to the day) between the A01_interview_date values and the A04_start values. You will need to create a format string for the A01_interview_date field.
->
-> 2. Looking at the results here and from the previous section of code. Do you think the use of the smartphone data entry system for the survey was being used in real time?
->
-> > ## Solution
-> >
-> > ~~~
-> > from datetime import datetime
-> >
-> > format1 = "%Y-%m-%dT%H:%M:%S.%fZ"
-> > format2 = "%d/%m/%Y"
-> >
-> > f = open('SAFI_results.csv', 'r')
-> >
-> > line = f.readline()
-> >
-> > for line in f:
-> >     A01 = line.split(',')[1]
-> >     A04 = line.split(',')[3]
-> >    
-> >     datetime_A04 = datetime.strptime(A04, format1)
-> >     datetime_A01 = datetime.strptime(A01, format2)
-> >     date_diff = datetime_A04 - datetime_A01
-> >     print(datetime_A04, datetime_A01, date_diff.days )
-> >      
-> > f.close()
-> > ~~~
-> > {: .language-python}
-> >
-> {: .solution}
-{: .challenge}
+
+{% assign cur_ex = site.exercises | where:"keyword", "datecalc" | first %}
+{{cur_ex.output}}

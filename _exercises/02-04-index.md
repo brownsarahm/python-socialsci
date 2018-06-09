@@ -1,6 +1,6 @@
 ---
 layout: exercise
-name: index
+keyword: index
 episode: 02-basics
 solution: "~~~
 list7 = list(range(2, 11, -2))

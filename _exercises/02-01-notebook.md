@@ -1,6 +1,6 @@
 ---
 layout: exercise
-name: notebook
+keyword: notebook
 episode: 02-basics
 solution: "1. Only the last result is printed.
 

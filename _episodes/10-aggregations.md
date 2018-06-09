@@ -91,26 +91,9 @@ print(df_SAFI['E19_period_use'].sum())
 ~~~
 {: output}
 
-> ## Exercise
->
-> Compare the count values returned for the `B_no_membrs` and the `E19_period_use` variables.
->
-> 1. Why do you think they are different?
-> 2. How does this affect the calculation of the mean values?
->
-> > ## Solution
-> >
-> > 1. We know from when we originally displayed the contents of the `df_SAFI` dataframe that there are 131 rows in it. This matches the value for the `B_no_membrs` count. The count for `E19_period_use` however is only 92. If you look at the values in the `E19_period_use` column using
-> >
-> > ~~~
-> > df_SAFI['E19_period_use']
-> > ~~~
-> > {: .language-python}
-> >
-> > you will see that there are several `NaN` values. They also occurred when we used `describe()` on the full dataframe. `NaN` stands for Not a Number, ie. the value is missing. There are only 92 non-missing values and this is what is reported by the `count()` method. This value is also used in the calculation of the mean and std values.
-> >
-> {: .solution}
-{: .challenge}
+{% assign cur_ex = site.exercises | where:"keyword", "counts" | first %}
+{{cur_ex.output}}
+
 
 ## Dealing with missing values
 
@@ -282,44 +265,6 @@ mabatipitched             burntbricks                  6
 ~~~
 {: output}
 
-> ## Exercise
->
-> 1. Read in the SAFI_results.csv dataset.
-> 2. Get a list of the different 'C01_respondent_roof_type' values.
-> 3. Groupby 'C01_respondent_roof_type' and describe the results.
-> 4. Remove rows with NULL values for 'E_no_group_count'.
-> 5. repeat steps 2 & 3 and compare the results.
->
-> > ## Solution
-> >
-> > ~~~
-> > # Steps 1 and 2
-> > import numpy as np
-> > df_SAFI = pd.read_csv("SAFI_results.csv")
-> > print(df_SAFI.shape)
-> > print(pd.unique(df_SAFI['C01_respondent_roof_type']))
-> > ~~~
-> > {: .language-python}
-> >
-> > ~~~
-> > # Step 3
-> > grouped_data = df_SAFI.groupby('C01_respondent_roof_type')
-> > grouped_data.describe()
-> > ~~~
-> > {: .language-python}
-> >
-> > ~~~
-> > # steps 4 and 5
-> > df_SAFI = df_SAFI[(df_SAFI['E_no_group_count'].notnull())]
-> > grouped_data = df_SAFI.groupby('C01_respondent_roof_type')
-> > print(df_SAFI.shape)
-> > print(pd.unique(df_SAFI['C01_respondent_roof_type']))
-> > grouped_data.describe()
-> > ~~~
-> > {: .language-python}
-> >
-> > 'E_no_group_count' is related to whether or not farm plots are irrigated or not. It has no obvious connection to farm buildings.
-> > By restricting the data to non-irrigated plots we have accidentally? removed one of the roof_types completely.
-> >
-> {: .solution}
-{: .challenge}
+
+{% assign cur_ex = site.exercises | where:"keyword", "groupby" | first %}
+{{cur_ex.output}}

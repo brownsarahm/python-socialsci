@@ -1,7 +1,7 @@
 ---
 layout: exercise
-name: "infomative name for exercise; used in filtering"
-episode: nn-name
+keyword: "infomative name for exercise; used in filtering"
+episode: nn
 solution: "solution markdown here
 "
 ---

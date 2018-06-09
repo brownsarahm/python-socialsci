@@ -127,10 +127,10 @@ In the last expression 'a' is multiplied by 2 and then the modulus of the result
 
 Arithmetic expressions can be arbitrarily complex, but remember people have to read and understand them as well.
 
-{% assign cur_ex = site.exercises | where:"name", "notebook" | first %}
+{% assign cur_ex = site.exercises | where:"keyword", "notebook" | first %}
 {{cur_ex.output}}
 
-<!-- {% include exercise_output.html name="notebook" %} -->
+<!-- {% include exercise_output.md keyword="notebook" %} -->
 
 ## Using built-in functions
 
@@ -142,7 +142,7 @@ For any function, a common question to ask is; What parameters does this functio
 
 In order to answer this from Jupyter, you can type the function name and then type `shift`+`tab` and a pop-up window will provide you with various details about the function including the parameters.
 
-{% assign cur_ex = site.exercises | where:"name", "print" | first %}
+{% assign cur_ex = site.exercises | where:"keyword", "print" | first %}
 {{cur_ex.output}}
 
 
@@ -390,25 +390,8 @@ print(bool_val_f)
 ~~~
 {: .language-python}
 
-We can also get variables of this type using comparison operators, which you might have found in the exploratory exercise earlier
-
-~~~
-bool_val = True
-if bool_val :
-    print("bool_val is",bool_val)
-
-bool_val = False
-if bool_val :
-    print("bool_val is",bool_val)
-~~~
-{: .language-python}
-
-~~~
-bool_val is True
-~~~
-{: .output}
-
-{{ex.outp}}
+{% assign cur_ex = site.exercises | where:"name", "bool" | first %}
+{{cur_ex.output}}
 
 ## Structured datatypes
 
@@ -492,5 +475,11 @@ When you specify 3 parameters as we have for list(7); the first is start value, 
 
 `list7` produces the even numbers from 1 to 10.
 
+
+{% assign cur_ex = site.exercises | where:"keyword", "index" | first %}
+
+Load this in a notebook with `%load code/{{cur_ex.keyword}} `
+
+{{cur_ex.output}}
 
 The other main structured data type is the Dictionary. We will introduce this in a later episode when we look at JSON.
