@@ -3,7 +3,6 @@ layout: exercise
 keyword: datemath
 episode: 06-date-and-time
 solution: "
-
 ~~~
 date_diff = datetime_start - datetime_end
 print(type(date_diff))
