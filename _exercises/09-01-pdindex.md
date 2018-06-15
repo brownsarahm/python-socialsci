@@ -1,6 +1,6 @@
 ---
 layout: exercise
-keyword: index
+keyword: pdindex
 episode: 09-extracting-data
 solution: "
 ~~~
@@ -14,6 +14,7 @@ print(df_SN7577[['Q1':'Q3']])
 You get an error if you only specify '1'. You need to use ':1' or '0:1' to get the first row returned. The ':' is always required. You can use ':' by itself to return all of the rows
 "
 ---
+See what happens when you try each of the following:
 
 1. List the columns you want out of order from the way they appear in the file?
 2. What happens if we put the same column name in twice?
