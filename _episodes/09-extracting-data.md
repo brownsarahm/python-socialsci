@@ -101,7 +101,7 @@ df_SN7577_some_rows
 ~~~
 {: .language-python}
 
-{% assign cur_ex = site.exercises | where:"keyword", "index" | first %}
+{% assign cur_ex = site.exercises | where:"keyword", "pdindex" | first %}
 {{cur_ex.output}}
 
 ## Using criteria to filter rows
