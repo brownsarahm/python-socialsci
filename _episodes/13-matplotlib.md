@@ -3,7 +3,7 @@ title: "Data visualisation using Matplotlib"
 teaching: 25
 exercises: 25
 questions:
-- "How can I create simple visualisations of my data?"
+- "How can I create visualisations of my data?"
 objectives:
 - "Import pyplot from the matplotlib library"
 - "Create simple plots using pyplot"

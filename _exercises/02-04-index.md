@@ -2,17 +2,22 @@
 layout: exercise
 keyword: index
 episode: 02-basics
-solution: "
-~~~
-list7 = list(range(2, 11, -2))
-print(list7)
+solution: |
+  ~~~
+  list7_2 = list(range(2, 11, -2))  
+  print(list7)
+  ~~~
+  {: .language-python}
+  a negative step size increments backwards, but the start has to be higher than
+   the stop for it to work.  As written, it outputs nothing because starting at
+  2, and stepping backwards 2 is already less than 11.
 
-list8 = list(range(10, 1, -2))
-print(list8)
-~~~
-{: .language-python}
-
-"
+  ~~~
+  list(range(10, 1, -2))  
+  ~~~
+  {: .language-python}
+hint: |
+  try other values for the start and stop to explore what the negative step does
 ---
 
 ~~~
