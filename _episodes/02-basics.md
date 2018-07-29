@@ -478,7 +478,7 @@ When you specify 3 parameters as we have for list(7); the first is start value, 
 
 {% assign cur_ex = site.exercises | where:"keyword", "index" | first %}
 
-Load this in a notebook with `%load code/{{cur_ex.keyword}} `
+
 
 {{cur_ex.output}}
 

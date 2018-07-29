@@ -1,6 +1,7 @@
+Load this in a notebook with `%load code/{{page.keyword}} `
 
 <blockquote class="challenge">
-  <h2 id="exercise"> Exercise</h2>
+  <h2 id="exercise"> Exercise :{{page.keyword}}</h2>
 
 <br>
   {{page.content}}
@@ -9,4 +10,13 @@
 
     {{page.solution | markdownify}}
   </blockquote>
+
+  {%if page.hint %}
+  <blockquote class="hint">
+    <h2 id="hint">Hint</h2>
+
+    {{page.hint | markdownify}}
+  </blockquote>
+  {%endif %}
+
 </blockquote>
