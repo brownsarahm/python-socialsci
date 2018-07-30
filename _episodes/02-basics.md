@@ -476,7 +476,7 @@ When you specify 3 parameters as we have for list(7); the first is start value, 
 `list7` produces the even numbers from 1 to 10.
 
 
-{% assign cur_ex = site.exercises | where:"keyword", "index" | first %}
+{% assign cur_ex = site.exercises | where:"keyword", "index" | first %} 
 {{cur_ex.output}}
 
 The other main structured data type is the Dictionary. We will introduce this in a later episode when we look at JSON.
