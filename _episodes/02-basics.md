@@ -127,10 +127,8 @@ In the last expression 'a' is multiplied by 2 and then the modulus of the result
 
 Arithmetic expressions can be arbitrarily complex, but remember people have to read and understand them as well.
 
-{% assign cur_ex = site.exercises | where:"keyword", "notebook" | first %}
-{{cur_ex.output}}
+{% include exercise_output.html keyword="notebook" %}
 
-<!-- {% include exercise_output.md keyword="notebook" %} -->
 
 ## Using built-in functions
 
@@ -142,8 +140,9 @@ For any function, a common question to ask is; What parameters does this functio
 
 In order to answer this from Jupyter, you can type the function name and then type `shift`+`tab` and a pop-up window will provide you with various details about the function including the parameters.
 
-{% assign cur_ex = site.exercises | where:"keyword", "print" | first %}
-{{cur_ex.output}}
+
+lude exercise_output.html keyword="print"%}
+
 
 
 ## Getting Help for Python
@@ -390,8 +389,10 @@ print(bool_val_f)
 ~~~
 {: .language-python}
 
-{% assign cur_ex = site.exercises | where:"name", "bool" | first %}
-{{cur_ex.output}}
+
+
+{% include exercise_output.html keyword="bool" %}
+
 
 ## Structured datatypes
 
@@ -476,7 +477,6 @@ When you specify 3 parameters as we have for list(7); the first is start value, 
 `list7` produces the even numbers from 1 to 10.
 
 
-{% assign cur_ex = site.exercises | where:"keyword", "index" | first %} 
-{{cur_ex.output}}
+{% include exercise_output.html keyword="index" %}
 
 The other main structured data type is the Dictionary. We will introduce this in a later episode when we look at JSON.

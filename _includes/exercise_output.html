@@ -1,0 +1,31 @@
+
+{%assign kw = {{include.keyword}} %}
+
+{% assign cur_ex = site.exercises | where:"keyword", kw | first %}
+
+
+Load this in a notebook with `%load code/{{cur_ex.keyword}} `
+
+<blockquote class="challenge">
+
+  <h2 id="exercise"> Exercise{%if include.num %} {{include.num}}{%endif%}:
+     {{cur_ex.keyword}}</h2>
+
+
+<br>
+  {{cur_ex.content}}
+  <blockquote class="solution">
+    <h2 id="solution">Solution</h2>
+
+    {{cur_ex.solution | markdownify}}
+  </blockquote>
+
+  {%if cur_ex.hint %}
+  <blockquote class="hint">
+    <h2 id="hint">Hint</h2>
+
+    {{cur_ex.hint | markdownify}}
+  </blockquote>
+  {%endif %}
+
+</blockquote>
