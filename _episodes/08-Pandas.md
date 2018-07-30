@@ -127,9 +127,8 @@ df_SN7577.head()
 {: .language-python}
 
 
-{% assign cur_ex = site.exercises | where:"keyword", "headtail" | first %}
-{{cur_ex.output}}
 
+{% include exercise_output.html keyword="headtail" %}
 
 You can obtain other basic information about your dataframe of data  with:
 
@@ -166,5 +165,4 @@ Length: 202, dtype: object
 {: .output}
 
 
-{% assign cur_ex = site.exercises | where:"keyword", "dfinfo" | first %}
-{{cur_ex.output}}
+{% include exercise_output.html keyword="dfinfo" %}

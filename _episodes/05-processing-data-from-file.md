@@ -207,8 +207,8 @@ fw.write(fr.readline())
 
 before the for loop
 
-{% assign cur_ex = site.exercises | where:"keyword", "roof_wall" | first %}
-{{cur_ex.output}}
+
+{% include exercise_output.html keyword="roof_wall" %}
 
 
 In our example of printing the counts for the roof types, we assumed that we knew what the likely roof types were. Although we did have an 'other' option to catch anything we missed. Had there been any we would still be non the wiser as to what they  represented. We were able to decide on the specific roof types by manually scanning the list of C01_respondent_roof_type values. This was only practical because of the small file size. For a multi-million record file we could not have done this.
@@ -288,8 +288,7 @@ already exists
 {: .output}
 
 
-{% assign cur_ex = site.exercises | where:"keyword", "dictionary" | first %}
-{{cur_ex.output}}
+{% include exercise_output.html keyword="dictionary" %}
 
 
 We are now in a position to re-write our count of roof types example without knowing in advance what any of the roof types are.

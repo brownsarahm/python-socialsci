@@ -201,9 +201,7 @@ print(date_diff)
 {: .output}
 
 
-{% assign cur_ex = site.exercises | where:"keyword", "datemath" | first %}
-{{cur_ex.output}}
-
+{% include exercise_output.html keyword="datemath" %}
 
 
 The code below calculates the time difference between supposedly starting the survey and ending the survey (for each respondent).
@@ -248,5 +246,4 @@ f.close()
 {: .output}
 
 
-{% assign cur_ex = site.exercises | where:"keyword", "datecalc" | first %}
-{{cur_ex.output}}
+{% include exercise_output.html keyword="datecalc" %}

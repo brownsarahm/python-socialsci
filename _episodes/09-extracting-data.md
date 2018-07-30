@@ -101,8 +101,8 @@ df_SN7577_some_rows
 ~~~
 {: .language-python}
 
-{% assign cur_ex = site.exercises | where:"keyword", "pdindex" | first %}
-{{cur_ex.output}}
+
+{% include exercise_output.html keyword="pdindex" %}
 
 ## Using criteria to filter rows
 

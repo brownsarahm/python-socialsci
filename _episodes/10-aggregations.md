@@ -91,9 +91,8 @@ print(df_SAFI['E19_period_use'].sum())
 ~~~
 {: output}
 
-{% assign cur_ex = site.exercises | where:"keyword", "counts" | first %}
-{{cur_ex.output}}
 
+{% include exercise_output.html keyword="counts" %}
 
 ## Dealing with missing values
 
@@ -266,5 +265,4 @@ mabatipitched             burntbricks                  6
 {: output}
 
 
-{% assign cur_ex = site.exercises | where:"keyword", "groupby" | first %}
-{{cur_ex.output}}
+{% include exercise_output.html keyword="groupby" %}

@@ -17,13 +17,13 @@ keypoints:
 - "Using pandas to return all of the results from a query is simpler than using sqlite3 alone  "
 ---
 
-## Introducing the sqlite3 module 
+## Introducing the sqlite3 module
 
 SQLite is a relational database system. Despite the 'Lite' in the name it can handle databases in excess of a Terabyte. The 'Lite'part really relates to the fact that it is a 'bare bones' system. It provides the mechanisms to create and query databases via a simple command line interface but not much else. In the SQL lesson we used a Firefox plugin to provide a GUI (Graphical User Interface) to the SQLite database engine.
 
 In this lesson we will use Python code using the sqlite3 module to access the engine. We can use Python code and the sqlite3 module to create, delete and query database tables.
 
-In practice we spend a lot of the time querying database tables. 
+In practice we spend a lot of the time querying database tables.
 
 ## Pandas dataframe v SQL table
 
@@ -85,26 +85,26 @@ cur.execute("SELECT * FROM SN7577")
 
 The `execute` method doesn't actually return any data, it just indicates that we want the data provided by running the 'Select' statement.
 
-> ## Exercise 
-> 
+> ## Exercise
+>
 > 1. What happens if you if you ask for a non existent table?, field within a table? or just any kind of syntax error?
-> 
+>
 > > ## Solution
-> > 
+> >
 > > ~~~
 > > cur = con.cursor()
 > > # notice the mistyping of 'SELECT'
 > > cur.execute("SELET * FROM SN7577")
 > > ~~~
 > > {: .language-python}
-> > 
+> >
 > > In all cases an error message is returned. The error message is not from Python but from SQLite. It is the same error message that you would have got had you made the same errors in the SQLite plugin.
 > >
 > {: .solution}
 {: .challenge}
 
 
-Before we can make use of the results of the query we need to use the `fetchall` method of the cursor. 
+Before we can make use of the results of the query we need to use the `fetchall` method of the cursor.
 
 The `fetchall` method returns a list. Each item in the list is a tuple containing the values from one row of the table. You can iterate through the items in a tuple in the same way as you would do so for a list.
 
@@ -161,34 +161,34 @@ print(row)
 ~~~
 {: output}
 
-> ## Exercise 
-> 
+> ## Exercise
+>
 > Can you write code to return the first 5 records from the SN7577 table in two different ways?
-> 
+>
 > > ## Solution
-> > 
+> >
 > > ~~~
 > > import sqlite3
 > > con = sqlite3.connect('SN7577.sqlite')
 > > cur = con.cursor()
-> > 
+> >
 > > # we can use the SQLite 'limit' clause to restrict the number of rows returned and then use 'fetchall'
 > > cur.execute("SELECT * FROM SN7577 Limit 5")
 > > rows = cur.fetchall()
-> > 
+> >
 > > for row in rows:
 > >     print(row)
-> > 
+> >
 > > # we can use 'fetchone' in a for loop
 > > cur.execute("SELECT * FROM SN7577")
 > > for i in range(1,6):
 > >     print(cur.fetchone())
-> > 
+> >
 > > # a third way would be to use the 'fetchmany()' method
-> > 
+> >
 > > cur.execute("SELECT * FROM SN7577")
 > > rows = cur.fetchmany(5)
-> > 
+> >
 > > for row in rows:
 > >     print(row)
 > > ~~~
@@ -260,41 +260,41 @@ con.close()
 
 
 > ## Exercise
-> 
+>
 > The code below creates an SQLite table as we have done in previous examples. Run this code to create the table.
-> 
+>
 > ~~~
 > con = sqlite3.connect('SN7577.sqlite')
 > df_undecided = df[df.Q1 == 10]
 > df_undecided.to_sql("Q1_undecided_v2", con)
 > con.close()
 > ~~~
-> 
+>
 > Try using the following pandas code to delete (drop) the table.
-> 
+>
 > ~~~
 > pd.read_sql_query("drop table Q1_undecided_v2", con)
 > ~~~
 > {: .language-python}
-> 
+>
 > 1. What happens?
 > 2. Run this line of code again, What is different?
 > 3. Can you explain the difference and does the table now exist or not?
-> 
-> 
+>
+>
 > > ## Solution
-> > 
+> >
 > > 1. When the line of code is run the first time you get an error message : 'NoneType' object is not iterable.
-> > 
+> >
 > > 2. When you run it a second time you get a different error message:
 > > DatabaseError: Execution failed on sql 'drop table Q1_undecided_v2': no such table: Q1_undecided_v2
-> > 
+> >
 > > 3. the `read_sql_query` method is designed to send the SQL containing your query to the SQLite execution engine, which will execute the SQL and return the output to pandas which will create a dataframe from the results.  
-> > 
+> >
 > > The SQL statement we sent is valid SQL but it doesn't return rows from a table, it simply reports success of failure (in dropping the table in this case). The first time we run it the table is deleted and a response to the effect is returned. The resonse cannot be converted to a dataframe, hence the first error message, which is a pandas error.
-> > 
+> >
 > > When we run it for the second time, the table has already has already been dropped, so this time the error message is from SQLite saying the table didn't exist. Pandas recognises that this is an SQLite error message and simply passes it on to the user.
-> > 
+> >
 > > The moral of the story: pandas may be better for getting data returned into a dataframe, but there are some things best left to the sqlite functions directly.
 > >
 > {: .solution}

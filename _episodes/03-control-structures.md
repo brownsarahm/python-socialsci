@@ -106,8 +106,8 @@ In the last example, notice that in Python the operator used to check equality i
 
 
 
-{% assign cur_ex = site.exercises | where:"keyword", "ifoperator" | first %}
-{{cur_ex.output}}
+{% include exercise_output.html keyword="ifoperator" %}
+
 
 Instead of using two separate `if` statements to decide which is larger we can use the `if ... else ...` construct
 
@@ -204,10 +204,8 @@ Points to note;
 changes it to green).  If we define `sum = 0` now we can't use the function `sum` in this python session.
 
 
-{% assign cur_ex = site.exercises | where:"keyword", "while" | first %}
-{{cur_ex.output}}
 
-
+{% include exercise_output.html keyword="while" %}
 
 
 ## The `for` loop
@@ -331,5 +329,5 @@ dog
 ~~~
 {: .output}
 
-{% assign cur_ex = site.exercises | where:"keyword", "for" | first %}
-{{cur_ex.output}}
+
+{% include exercise_output.html keyword="for" %}

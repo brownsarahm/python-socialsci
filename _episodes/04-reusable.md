@@ -99,8 +99,8 @@ print(power(raisedto = 6, num = 4))
 {: .output}
 
 
-{% assign cur_ex = site.exercises | where:"keyword", "cuboid" | first %}
-{{cur_ex.output}}
+
+{% include exercise_output.html keyword="cuboid" %}
 
 
 ## Using libraries

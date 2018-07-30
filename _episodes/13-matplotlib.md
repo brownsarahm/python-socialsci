@@ -183,8 +183,8 @@ plt.show()
 In the call to the `scatter` method, the `label` parameter values are used by the 'legend'.
 The 'c' or 'color' parameter can be set to any color matplotlib recognises. Full details of the available colours are available in the [matplotlib](http://matplotlib.org/api/colors_api.html) website.  The [markers](http://matplotlib.org/api/markers_api.html) section will tell you what markers you can use instead of the default 'dots'. There is also an s (size) parameter which allows you to change the size of the marker.
 
-{% assign cur_ex = site.exercises | where:"keyword", "scattersize" | first %}
-{{cur_ex.output}}
+
+{% include exercise_output.html keyword="scattersize" %}
 
 
 ## Boxplot

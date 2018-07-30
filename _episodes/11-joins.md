@@ -146,5 +146,6 @@ The possible values of the `how` parameter are shown in the picture below (taken
 
 The different join types behave in the same way as they do in SQL. In Python/pandas, any missing values are shown as `NaN`
 
-{% assign cur_ex = site.exercises | where:"keyword", "join" | first %}
-{{cur_ex.output}}
+
+
+{% include exercise_output.html keyword="join" %}
