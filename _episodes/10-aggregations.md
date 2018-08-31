@@ -29,14 +29,14 @@ df_SAFI
 ~~~
 {: .language-python}
 
-For numeric variables we can obtain a variety of basic statistical information by using the `describe` method.
+For numeric variables we can obtain a variety of basic statistical information by using the `describe()` method.
 
 ~~~
 df_SAFI.describe()
 ~~~
 {: .language-python}
 
-This can be done for the dataframe as a whole, in which case some of the results might have no sensible meaning. If there are any missing values, represented in the display as `NaN` you will get a warning message.
+This can be done for the Dataframe as a whole, in which case some of the results might have no sensible meaning. If there are any missing values, represented in the display as `NaN` you will get a warning message.
 
 You can also `.describe()` on a single variable basis.
 
@@ -67,7 +67,7 @@ print(df_SAFI['B_no_membrs'].sum())
 ~~~
 {: .output}
 
-Unlike the `describe` method which converts the variable to a float (when it was originally an integer), the individual summary methods only does so for the returned result if needed.
+Unlike the `describe()` method which converts the variable to a float (when it was originally an integer), the individual summary methods only does so for the returned result if needed.
 
 We can do the same thing for the `E19_period_use` variable
 
@@ -96,7 +96,7 @@ print(df_SAFI['E19_period_use'].sum())
 
 ## Dealing with missing values
 
-We can find out how many variables in our dataframe contains any `NaN` values with the code
+We can find out how many variables in our Dataframe contains any `NaN` values with the code
 
 ~~~
 df_SAFI.isnull().sum()
@@ -144,7 +144,7 @@ With these options we can ensure that the data is suitable for the further proce
 
 ### Completely remove rows with NaNs
 
-The `dropna` method will delete all rows if *any* of the variables contain an `NaN`. For some datasets this may be acceptable. You will need to take care that you have enough rows left for your analysis to have meaning.
+The `dropna()` method will delete all rows if *any* of the variables contain an `NaN`. For some datasets this may be acceptable. You will need to take care that you have enough rows left for your analysis to have meaning.
 
 ~~~
 df_SAFI = pd.read_csv("SAFI_results.csv")
@@ -160,7 +160,7 @@ print(df_SAFI.shape)
 ~~~
 {: output}
 
-Because there are variables in the SAFI dataset which are all `NaN` using the `dropna` method effectively deletes all of the rows from the dataframe, probably not what you wanted. Instead we can use the `notnull()` method as a row selection criteria and delete the rows where a specific variable has `NaN` values.
+Because there are variables in the SAFI dataset which are all `NaN` using the `dropna()` method effectively deletes all of the rows from the Dataframe, probably not what you wanted. Instead we can use the `notnull()` method as a row selection criteria and delete the rows where a specific variable has `NaN` values.
 
 ~~~
 df_SAFI = pd.read_csv("SAFI_results.csv")
@@ -178,7 +178,7 @@ print(df_SAFI.shape)
 
 ### Replace NaN with a value of our choice
 
-The 'E19_period_use' variable answers the question; 'For how many years have you been irrigating the land?'. In some cases the land is not irrigated and these are represented by NaN in the dataset. So when we run
+The `E19_period_use` variable answers the question: "For how many years have you been irrigating the land?". In some cases the land is not irrigated and these are represented by NaN in the dataset. So when we run
 
 ~~~
 df_SAFI['E19_period_use'].describe()
@@ -188,7 +188,7 @@ we get a count value of 92 and all of the other statistics are based on this cou
 
 Now supposing that instead of NaN the interviewer entered a value of 0 to indicate the land which is *not* irrigated has been irrigated for 0 years, technically correct.
 
-To see what happens we can convert all of the NaN values in the 'E19_period_use' column to 0 with the following code;
+To see what happens we can convert all of the NaN values in the `E19_period_use` column to 0 with the following code:
 
 ~~~
 df_SAFI['E19_period_use'].fillna(0, inplace=True)
@@ -202,7 +202,7 @@ Conveniently this allows us to demonstrate our 3rd action.
 
 ### Replace specific values with NaN
 
-Although we can recognise `NaN` with methods like `isnull` or `dropna` actually creating a `NaN` value and putting it into a dataframe, requires the `numpy` module. The following code will replace our 0 values with `NaN`. We can demonstrate that this has occurred by running the `describe()` again and see that we now have our original values back.
+Although we can recognise `NaN` with methods like `isnull()` or `dropna()` actually creating a `NaN` value and putting it into a Dataframe, requires the `numpy` module. The following code will replace our 0 values with `NaN`. We can demonstrate that this has occurred by running the `describe()` again and see that we now have our original values back.
 
 ~~~
 import numpy as np
@@ -214,7 +214,7 @@ df_SAFI['E19_period_use'].describe()
 ## Categorical variables
 
 For categorical variables, numerical statistics don't make any sense.
-For a categorical variable we can obtain a list of unique values used by the variable by using the `unique` method.
+For a categorical variable we can obtain a list of unique values used by the variable by using the `unique()` method.
 
 ~~~
 df_SAFI = pd.read_csv("SAFI_results.csv")
@@ -229,7 +229,7 @@ array(['grass', 'mabatisloping', 'mabatipitched'], dtype=object)
 
 Knowing all of the unique values is useful but what is more useful is knowing how many occurrences of each there are. In order to do this we can use the `groupby` method.
 
-Having performed the `groupby` we can them `describe()` the results. The format is similar to that which we have seen before except that the 'grouped by' variable appears to the left and there is a set of statistics for each unique value of the variable.
+Having performed the `groupby()` we can them `describe()` the results. The format is similar to that which we have seen before except that the 'grouped by' variable appears to the left and there is a set of statistics for each unique value of the variable.
 
 ~~~
 grouped_data = df_SAFI.groupby('C01_respondent_roof_type')
@@ -237,7 +237,7 @@ grouped_data.describe()
 ~~~
 {: .language-python}
 
-You can group by more than on variable at a time by providing them as a list.
+You can group by more than one variable at a time by providing them as a list.
 
 ~~~
 grouped_data = df_SAFI.groupby(['C01_respondent_roof_type', 'C02_respondent_wall_type'])

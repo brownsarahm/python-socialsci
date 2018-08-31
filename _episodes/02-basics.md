@@ -19,9 +19,9 @@ objectives:
 - "Convert from one data type to another"
 keypoints:
 - "The Jupyter environment can be used to write code segments and display results"
-- "Datatypes in Python are implicit based on variable values"
-- "Basic datatypes are Integer, Float, String and Boolean"
-- "Lists and Dictionaries are structured datatypes"
+- "Data types in Python are implicit based on variable values"
+- "Basic data types are Integer, Float, String and Boolean"
+- "Lists and Dictionaries are structured data types"
 - "Arithmetic uses standard arithmetic operators, precedence can be changed using brackets "
 - "Help is available for builtin functions using the `help()` function further help and code examples are available online "
 - "In Jupyter you can get help on function parameters using  <kbd>shift</kbd>+<kbd>tab</kbd> "
@@ -32,7 +32,7 @@ keypoints:
 ## Using the Jupyter environment
 
 ### New cells
-From the insert menu item you can insert a new cell anywhere in the notebook either above or below the current cell. You can also us the + button on the toolbar to insert a new cell below.
+From the insert menu item you can insert a new cell anywhere in the notebook either above or below the current cell. You can also use the `+` button on the toolbar to insert a new cell below.
 
 ### Change cell type
 
@@ -44,7 +44,7 @@ By default new cells are created as code cells. From the cell menu item you can 
 
 ### Hiding output
 
-When you run cells of code the out put is displayed immediately below the cell. In general this is convenient. The output is associated with the cell that produced it and remains a part of the notebook. So if you copy or move the notebook the output stays with the code.
+When you run cells of code the output is displayed immediately below the cell. In general this is convenient. The output is associated with the cell that produced it and remains a part of the notebook. So if you copy or move the notebook the output stays with the code.
 
 However lots of output can make the notebook look cluttered and more difficult to move around. So there is an option available from the `cell` menu item to 'toggle' or 'clear' the output associated either with an individual cell or all cells in the notebook.
 
@@ -61,8 +61,8 @@ b = 3.142
 {: .language-python}
 
 All variables have a data type associated with them.
-The datatype is an indication of the type of data contained in a variable.
-If you want to know the type of a variable you can use the built-in type() function.
+The data type is an indication of the type of data contained in a variable.
+If you want to know the type of a variable you can use the built-in `type()` function.
 
 ~~~
 print(type(a))
@@ -88,10 +88,10 @@ For now we will stick with the numeric types and do some arithmetic.
 
 All of the usual arithmetic operators are available.
 
-In the examples below we also introduce the Python comment symbol '#'.
-Anything to the right of the '#' symbol is treated as a comment. To a large extent using markdown cells in a notebook reduces the need for comments in the code, but occasionally they can be useful. - Don't over do them.
+In the examples below we also introduce the Python comment symbol `#`.
+Anything to the right of the `#` symbol is treated as a comment. To a large extent using Markdown cells in a notebook reduces the need for comments in the code, but occasionally they can be useful. - Don't overdo them.
 
-We also make use of the built-in 'print()' function.
+We also make use of the built-in `print()` function.
 
 ~~~
 print("a =", a, "and b =" , b)
@@ -115,15 +115,15 @@ a = 2 and b = 3.142
 ~~~
 {: .output}
 
-We need to use the print function because by default only the last output from a cell is displayed in the output cell.
+We need to use the `print()` function because by default only the last output from a cell is displayed in the output cell.
 
-The first call to the print function is passed four different parameters, each separated by a comma. A string "a = " followed by a followed by the string "b = " and then the variable b.
+In our example above, we pass four different parameters to the first call of `print()`, each separated by a comma. A string `"a = "`, followed by the variable `a`, followed by the string `"b = "` and then the variable `b`.
 
 The output is what you would probably have guessed at.
 
-All of the other calls to print are only passed a single parameter. Although it may look like 2 or 3, the expressions are evaluated first and it is only the single result which is seen as the parameter value and printed.
+All of the other calls to `print()` are only passed a single parameter. Although it may look like 2 or 3, the expressions are evaluated first and it is only the single result which is seen as the parameter value and printed.
 
-In the last expression 'a' is multiplied by 2 and then the modulus of the result is taken. Had I wanted to calculate a % b and then multiply the result by two I could have done so by using brackets to make the order of calculation clear.
+In the last expression `a` is multiplied by 2 and then the modulus of the result is taken. Had I wanted to calculate a % b and then multiply the result by two I could have done so by using brackets to make the order of calculation clear.
 
 Arithmetic expressions can be arbitrarily complex, but remember people have to read and understand them as well.
 
@@ -132,16 +132,16 @@ Arithmetic expressions can be arbitrarily complex, but remember people have to r
 
 ## Using built-in functions
 
-Python has a reasonable number of built-in functions. You can find a complete list in the [official documentation](https://docs.python.org/3/library/functions.html)
+Python has a reasonable number of built-in functions. You can find a complete list in the [official documentation](https://docs.python.org/3/library/functions.html).
 
 Additional functions are provided by 3rd party packages which we will look at later on.
 
-For any function, a common question to ask is; What parameters does this function take?
+For any function, a common question to ask is: What parameters does this function take?
 
 In order to answer this from Jupyter, you can type the function name and then type `shift`+`tab` and a pop-up window will provide you with various details about the function including the parameters.
 
 
-lude exercise_output.html keyword="print"%}
+{%include exercise_output.html keyword="print"%}
 
 
 
@@ -169,18 +169,20 @@ print(...)
 ~~~
 {: .output}
 
-There is a great deal of Python help and information as well as code examples available from the Internet.  One popular site is [stackoverflow](https://stackoverflow.com/tags) which specialises in providing programming help. They have dedicated forums not only for Python but also for many of the popular 3rd party Python packages. They also always provide code examples to illustrate answers to questions.
+There is a great deal of Python help and information as well as code examples available from the internet.  One popular site is [stackoverflow](https://stackoverflow.com/tags) which specialises in providing programming help. They have dedicated forums not only for Python but also for many of the popular 3rd party Python packages. They also always provide code examples to illustrate answers to questions.
 
 You can also get answers to your queries by simply inputting your question (or selected keywords) into any search engine.
 
-A couple of things you may need to wary of: There are currently 2 versions of Python in use, in most cases code examples will both in either but there are some exceptions. Secondly, some replies may assume a knowledge of Python beyond your own, making the answers difficult to follow. But for any given question there will be a whole range of suggested solutions so you can always move on to the next.
 
-## Datatypes and how Python uses them
+A couple of things you may need to be wary of: There are currently 2 versions of Python in use, in most cases code examples will run in either but there are some exceptions. Secondly, some replies may assume a knowledge of Python beyond your own, making the answers difficult to follow. But for any given question there will be a whole range of suggested solutions so you can always move on to the next.
 
-### Changing datatypes
-The  datatype of a variable is assigned when you give a variable a value as we did above. If you re-assign the value of a variable, you can change the datatype.
 
-You can also explicitly change the type of a variable by `casting` it using an appropriate python builtin function. In this example we have changed a `string` to a `float`.
+## Data types and how Python uses them
+
+### Changing data types
+The  data type of a variable is assigned when you give a variable a value as we did above. If you re-assign the value of a variable, you can change the data type.
+
+You can also explicitly change the type of a variable by `casting` it using an appropriate Python builtin function. In this example we have changed a `string` to a `float`.
 
 ~~~
 a = "3.142"
@@ -224,7 +226,7 @@ print(a)
 ~~~
 {: .output}
 
-In some circumstances explicitly converting a datatype makes no sense; you cannot change a string with alphabetic characters into a number.
+In some circumstances explicitly converting a data type makes no sense; you cannot change a string with alphabetic characters into a number.
 
 ~~~
 b = "Hello World"
@@ -251,7 +253,7 @@ ValueError: invalid literal for int() with base 10: 'Hello World'
 
 ## Strings
 
-A string is a simple datatype which holds a sequence of characters.
+A string is a simple data type which holds a sequence of characters.
 
 Strings are placed in quotes when they are being assigned, but the quotes don't count as part of the string value.
 
@@ -284,7 +286,7 @@ There are a variety of Python functions available for use with strings. In Pytho
 
 Although `methods` and `functions` are very similar in practice, there is a difference in the way you call them.
 
-One typical bit of information you might want to know about a string is its length for this we use the `len()` `function`. For almost anything else you might want to do with strings, there is a method.
+One typical bit of information you might want to know about a string is its length for this we use the `len()` function. For almost anything else you might want to do with strings, there is a method.
 
 ~~~
 mystring = "Hello World"
@@ -319,7 +321,7 @@ myString = "The quick brown fox"
 print(myString.startswith("The"))
 print(myString.find("The"))        # notice that string positions start with 0 like all indexing in Python
 print(myString.upper())            # The contents of myString is not changed, if you wanted an uppercase version
-print(myString)                    # you woulf have to assign it to a new variable
+print(myString)                    # you would have to assign it to a new variable
 
 # The methods starting with 'is...' return a boolean value of either True or False
 
@@ -374,9 +376,9 @@ The quick
 ~~~
 {: .output}
 
-## Basic Python datatypes
+## Basic Python data types
 
-So far we have seen three basic Python data types; Integer, Float and String. There is another basic datatype; Boolean. Boolean variables can only have the values of either `True` or `False`. (Remember, python is case sensitive, so be careful of your spelling.)
+So far we have seen three basic Python data types; Integer, Float and String. There is another basic data type; Boolean. Boolean variables can only have the values of either `True` or `False`. (Remember, Python is case sensitive, so be careful of your spelling.)
 We can define variables to be of type boolean by setting their value accordingly.
 
 ~~~
@@ -394,9 +396,9 @@ print(bool_val_f)
 {% include exercise_output.html keyword="bool" %}
 
 
-## Structured datatypes
+## Structured data types
 
-A structured datatype is a datatype which is made up of some combination of the base datatypes in a well defined but potentially arbitrarily complex way.
+A structured data type is a data type which is made up of some combination of the base data types in a well defined but potentially arbitrarily complex way.
 
 ### The list
 
@@ -452,7 +454,7 @@ print(list5)
 ~~~
 {: .output}
 
-Unless told not to range() returns a sequence which starts at 0, counts up by 1 and ends 1 before the value of the provided parameter.
+Unless told not to `range()` returns a sequence which starts at 0, counts up by 1 and ends 1 before the value of the provided parameter.
 
 This can be a cause of confusion. `range(5)` above does indeed have 5 values, but rather than being 1,2,3,4,5 which you might naturally think, they are in fact 0,1,2,3,4. The range starts at 0 and  stops one before the value of the single parameter we specified.
 
