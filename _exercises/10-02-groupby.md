@@ -3,39 +3,73 @@ layout: exercise
 keyword: groupby
 episode: 10-aggregations
 solution: "
-~~~
-# Steps 1 and 2
-import numpy as np
-df_SAFI = pd.read_csv(\"SAFI_results.csv\")
+Steps 1. and 2.
+\n
+
+```
+import pandas as pd
+```
+\n
+
+```
+df_SAFI = pd.read_csv('SAFI_clean.csv', skipinitialspace=True)
+```
+\n
+
+```
 print(df_SAFI.shape)
-print(pd.unique(df_SAFI['C01_respondent_roof_type']))
-~~~
-{: .language-python}
+```
+\n
 
-~~~
-# Step 3
-grouped_data = df_SAFI.groupby('C01_respondent_roof_type')
+```
+print(pd.unique(df_SAFI['rooms']))
+```
+\n
+
+Step 3.
+\n
+
+```
+grouped_data = df_SAFI.groupby('rooms')
+```
+\n
+
+```
 grouped_data.describe()
-~~~
-{: .language-python}
+```
+\n
 
-~~~
-# steps 4 and 5
-df_SAFI = df_SAFI[(df_SAFI['E_no_group_count'].notnull())]
-grouped_data = df_SAFI.groupby('C01_respondent_roof_type')
+Steps 4. and 5.
+\n
+
+```
+df_SAFI.dropna(inplace=True)
+```
+\n
+
+```
 print(df_SAFI.shape)
-print(pd.unique(df_SAFI['C01_respondent_roof_type']))
-grouped_data.describe()
-~~~
-{: .language-python}
+```
+\n
 
-'E_no_group_count' is related to whether or not farm plots are irrigated or not. It has no obvious connection to farm buildings.
-By restricting the data to non-irrigated plots we have accidentally? removed one of the roof_types completely.
+```
+print(pd.unique(df_SAFI['rooms']))
+```
+\n
+
+```
+grouped_data = df_SAFI.groupby('rooms')
+```
+\n
+
+```
+grouped_data.describe()
+```
 "
 ---
 
-1. Read in the SAFI_results.csv dataset.
-2. Get a list of the different 'C01_respondent_wall_type' values.
-3. Groupby 'C01_respondent_roof_type' and describe the results.
-4. Remove rows with NULL values for 'E_no_group_count'.
+1. Read in the SAFI_clean.csv dataset.
+2. Get a list of the different `rooms` values.
+3. Groupby `rooms` and describe the results.
+4. Remove all rows with NaN values.
 5. repeat steps 2 & 3 and compare the results.
