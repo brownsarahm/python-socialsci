@@ -27,12 +27,12 @@ df_SAFI = pd.read_csv("SAFI_clean.csv")
 ~~~
 {: .language-python}
 
-### Selecting rows and columns from a pandas Dataframe
+# Selecting rows and columns from a pandas Dataframe
 
 If we know which columns we want before we read the data from the file we can tell `read_csv()` to only import those columns by specifying columns either by their index number (starting at 0) as a list to the `usecols` parameter. Alternatively we can also provide a list of column names.  
 
 ~~~
-df_SAFI_some_cols = pd.read_csv("SAFI_clean.csv", usecols=[0,1,2,12,13,14])
+df_SAFI_some_cols = pd.read_csv("SAFI_clean.csv", usecols=[0,1,2,11,12,13])
 print(df_SAFI_some_cols.shape)
 print(df_SAFI_some_cols.columns)
 ~~~
