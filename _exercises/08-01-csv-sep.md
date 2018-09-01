@@ -4,7 +4,7 @@ keyword: csv-sep
 episode: 08-Pandas
 solution: "
 ```
-SAFI_oops = pd.read_csv('SAFI_clean.csv, sep = '\\t')
+SAFI_oops = pd.read_csv('SAFI_clean.csv', sep = '\\t')
 ```
 \n
 
