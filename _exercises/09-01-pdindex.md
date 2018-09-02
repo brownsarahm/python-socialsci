@@ -3,14 +3,35 @@ layout: exercise
 keyword: pdindex
 episode: 09-extracting-data
 solution: "
-~~~
-print(df_SN7577[['Q3', 'Q2']])
-print(df_SN7577[['Q3', 'Q2', 'Q3']])
-print(df_SN7577[['Q33', 'Q2']])
-print(df_SN7577[['Q1':'Q3']])
-~~~
-{: .language-python}
+1.
+```
+print(df_SAFI[['no_membrs', 'village']])
+```
+\n
 
+2.
+```
+print(df_SAFI[['no_membrs', 'village', 'no_membrs']])
+```
+\n
+
+3.
+```
+print(df_SAFI[['no_members', 'village']])
+```
+\n
+
+4.
+```
+print(df_SAFI.iloc[:,2:5])
+```
+\n
+
+5.
+```
+print(df_SAFI[0:1])
+```
+\n
 You get an error if you only specify '1'. You need to use ':1' or '0:1' to get the first row returned. The ':' is always required. You can use ':' by itself to return all of the rows
 "
 ---
