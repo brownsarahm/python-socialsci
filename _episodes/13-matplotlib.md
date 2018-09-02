@@ -14,6 +14,75 @@ keypoints:
 - "Plotting multiple graphs on a single 'canvas' is possible"
 ---
 
+## Plotting in python
+
+There are a wide variety of ways to plot in python, like many programming languages.  Some do more of the design work for you and others let you customize the look of the plots and all of the little details yourself. `Pandas` has basic plots built into it that reduce the amount of syntax, if your data is already in a DataFrame.  `matplotlib` is fully controllable down to basic elements and includes a module `pylab` that is somewhere in between (designed to feel like matlab plotting, if you happen to have done that before)
+
+## Plotting with Pandas
+
+To plot with pandas we have to import it as we have done in past episodes.  We can also use the `%matplotlib inline` notebook magic to reduce syntax otherwise.  Without that we need to a `show()` command
+
+~~~
+import pandas as pd
+%matplotlib inline
+~~~
+{: .language-python}
+
+We also need data to work with loaded into a DataFrame and it's helpful to look at a few rows to remember what's there.
+
+~~~
+df = pd.read_csv("../data/SAFI_results.csv")
+df.head()
+~~~
+{: .language-python}
+
+Next, we can plot the a histogram of a variable
+
+
+~~~
+{: .language-python}
+df.C06_rooms.hist(bins=4)
+~~~~~~
+{: .language-python}
+
+![png](output_4_1.png)
+
+
+We can change the number of bins to make it look how we would like, for example
+
+~~~
+{: .language-python}
+df.C06_rooms.hist(bins=40)
+~~~~~~
+{: .language-python}
+
+![png](output_5_1.png)
+
+Pandas plottingn also works on groupbys
+
+~~~
+{: .language-python}
+df.groupby('C02_respondent_wall_type').C01_respondent_roof_type.hist()
+~~~~~~
+{: .language-python}
+![png](output_8_1.png)
+
+
+There is also scatter plots
+
+
+~~~
+{: .language-python}
+df.plot.scatter(x='gps:Latitude', y='gps:Longitude', c='gps:Altitude', colormap="viridis", figsize=[4,4])
+~~~~~~
+{: .language-python}
+
+![png](output_10_1.png)
+
+
+
+
+
 ## Matplotlib
 
 Matplotlib is a Python graphical library that can be used to produce a variety of different graph types.
@@ -24,7 +93,7 @@ Although we are using Matplotlib in this episode, pandas can make use of several
 
 ## Importing matplotlib
 
-The matplotlib library can be imported using any of the import techniques we have seen. As `pandas` is generally imported with `import panas as pd`, you will find that `matplotlib` is most commonly imported with `import matplotlib as plt` where 'plt' is the alias.
+The matplotlib library can be imported using any of the import techniques we have seen. As `pandas` is generally imported with `import pandas as pd`, you will find that `matplotlib` is most commonly imported with `import matplotlib.pylab as plt` where 'plt' is the alias.
 
 In addition to importing the library, in a Jupyter notebook environment we need to tell Jupyter that when we produce a graph we want it to be display the graph in a cell in the notebook just like any other results. To do this we use the `%matplotlib inline` directive.  
 
@@ -36,69 +105,11 @@ import matplotlib.pyplot as plt
 ~~~
 {: .language-python}
 
-## Numpy
-
-Numpy is another Python library. It is used for multi-dimensional array processing. In our case we just want to use it for its useful random number generation functions which we will use to create some fake data to demonstrate some of the graphing functions of matplotlib.
-
-We will use the alias `np`, following convention.
-
-## Bar charts
-
-~~~
-np.random.rand(20)
-~~~
-{: .language-python}
-
-will generate 20 random numbers between 0 and 1.
-
-We are using these to create a pandas Series of values.
-
-A bar chart only needs a single set of values. Each 'bar' represents the value from the Series of values.
-A pandas Series (and a Dataframe) have a method called 'plot'. We only need to tell plot what kind of graph we want.
-
-The 'x' axis represents the index values of the Series
-
-
-~~~
-import numpy as np
-import pandas as pd
-
-np.random.seed(12345)            # set a seed value to ensure reproducibility of the plots
-s = pd.Series(np.random.rand(20) )
-#s
-# plot the bar chart
-s.plot(kind='bar')
-~~~
-{: .language-python}
-
 Internally the pandas 'plot' method has called the 'bar' method of matplotlib and provided a set of parameters, including the pandas.Series s to generate the graph.
 
 We can use matplotlib directly to produce a similar graph. In this case we need to pass two parameters, the number of bars we need and the pandas Series holding the values.
 
 We also have to explicitly call the `show()` function to produce the graph.
-
-~~~
-plt.bar(range(len(s)), s)
-plt.show()
-~~~
-{: .language-python}
-
-> ## Exercise
->
-> Compare the two graphs we have just drawn. How do they differ? Are the differences significant?
->
-> > ## Solution
-> >
-> > Most importantly the data in the graphs is the same. There are cosmetic differences in the scale points in the x and y axis and in the width of the bars.
-> >
-> > The width of the bars can be changed with a parameter in the 'bar' function
-> >
-> > ~~~
-> > plt.bar(range ( len ( s )), s, width = 0.5)   # the default width is 0.8
-> > ~~~
-> > {: .language-python}
-> {: .solution}
-{: .challenge}
 
 ## Histograms
 
@@ -107,9 +118,8 @@ We can plot histograms in a similar way, directly from pandas and also from Matp
 The pandas way
 
 ~~~
-s = pd.Series(np.random.rand(20))
 # plot the bar chart
-s.plot(kind='hist')
+df.C06_rooms.hist(bins=40)
 ~~~
 {: .language-python}
 
