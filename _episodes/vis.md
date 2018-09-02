@@ -1,20 +1,5 @@
 
 
-```python
-import pandas as pd
-import matplotlib.pyplot as plt
-%matplotlib inline
-```
-
-
-```python
-df = pd.read_csv("../data/SAFI_results.csv")
-```
-
-
-```python
-df.head()
-```
 
 
 
@@ -201,9 +186,6 @@ df.C06_rooms.mean()
 
 
 
-```python
-df.C06_rooms.hist(bins=4)
-```
 
 
 
@@ -213,13 +195,7 @@ df.C06_rooms.hist(bins=4)
 
 
 
-![png](output_4_1.png)
 
-
-
-```python
-df.C06_rooms.hist(bins=40)
-```
 
 
 
@@ -229,7 +205,6 @@ df.C06_rooms.hist(bins=40)
 
 
 
-![png](output_5_1.png)
 
 
 
@@ -279,9 +254,6 @@ df.groupby('C02_respondent_wall_type').C01_respondent_roof_type.count()
 
 
 
-```python
-df.groupby('C02_respondent_wall_type').C01_respondent_roof_type.hist()
-```
 
 
 
@@ -296,8 +268,6 @@ df.groupby('C02_respondent_wall_type').C01_respondent_roof_type.hist()
 
 
 
-![png](output_8_1.png)
-
 
 
 ```python
@@ -311,25 +281,10 @@ df[ ["gps:Latitude", "gps:Longitude"] ].plot.scatter()
 
     <ipython-input-10-69f4c2733b18> in <module>()
     ----> 1 df[ ["gps:Latitude", "gps:Longitude"] ].plot.scatter()
-    
+
 
     TypeError: scatter() missing 2 required positional arguments: 'x' and 'y'
 
-
-
-```python
-df.plot.scatter(x='gps:Latitude', y='gps:Longitude', c='gps:Altitude', colormap="viridis", figsize=[4,4])
-```
-
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x7f24cc479b38>
-
-
-
-
-![png](output_10_1.png)
 
 
 
@@ -377,7 +332,7 @@ ax = df.groupby("C02_respondent_wall_type")["C06_rooms"].mean().plot(kind="barh"
 import seaborn as sns
 sns.set(font_scale=1.5)
 
-ax = df.groupby("C02_respondent_wall_type")["C06_rooms"].mean().plot(kind="barh", 
+ax = df.groupby("C02_respondent_wall_type")["C06_rooms"].mean().plot(kind="barh",
                                                                      title="Title of the plot",
                                                                      xlim=[0,10])
 
@@ -471,5 +426,3 @@ df.columns
            '_members_count', '_note', 'gps:Accuracy', 'gps:Altitude',
            'gps:Latitude', 'gps:Longitude', 'instanceID'],
           dtype='object')
-
-
