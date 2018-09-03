@@ -37,7 +37,7 @@ import pandas as pd
 We also need data to work with loaded into a DataFrame and it's helpful to look at a few rows to remember what's there.
 
 ~~~
-df = pd.read_csv("../data/SAFI_results.csv")
+df = pd.read_csv("../data/SAFI_clean.csv")
 df.head()
 ~~~
 {: .language-python}
@@ -47,7 +47,7 @@ Next, we can plot the a histogram of a variable
 
 ~~~
 {: .language-python}
-df.C06_rooms.hist(bins=4)
+df.rooms.hist(bins=4)
 ~~~~~~
 {: .language-python}
 
@@ -58,7 +58,7 @@ We can change the number of bins to make it look how we would like, for example
 
 ~~~
 {: .language-python}
-df.C06_rooms.hist(bins=40)
+df.rooms.hist(bins=40)
 ~~~~~~
 {: .language-python}
 
@@ -68,7 +68,7 @@ Pandas plottingn also works on groupbys
 
 ~~~
 {: .language-python}
-df.groupby('C02_respondent_wall_type').C01_respondent_roof_type.hist()
+df.groupby('respondent_wall_type').respondent_roof_type.hist()
 ~~~~~~
 {: .language-python}
 ![png](output_8_1.png)

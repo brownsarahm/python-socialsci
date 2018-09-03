@@ -6,7 +6,7 @@ solution: "TODO
 "
 ---
 
-Resit your favorite plot we've made so far, or make one with your own data then:
+Revisit your favorite plot we've made so far, or make one with your own data then:
 
 1. add axes labels
 2. add a title
