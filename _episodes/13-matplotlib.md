@@ -17,7 +17,7 @@ keypoints:
 ## Plotting in python
 
 There are a wide variety of ways to plot in python, like many programming languages.  Some do more of the design work for you and others let you customize the look of the plots and all of the little details yourself. `Pandas` has basic plots built into it that reduce the amount of syntax, if your data is already in a DataFrame.
-Matplotlib is a Python graphical library that can be used to produce a variety of different graph types, it is fully controllable down to basic elements and includes a module `pylab` that is somewhere in between (designed to feel like matlab plotting, if you happen to have done that before.
+Matplotlib is a Python graphical library that can be used to produce a variety of different graph types, it is fully controllable down to basic elements and includes a module `pylab` that is somewhere in between (designed to feel like matlab plotting, if you happen to have done that before).
 
 
 The pandas library contains very tight integration with matplotlib. There are functions in pandas that automatically call matplotlib functions to produce graphs.
@@ -37,7 +37,7 @@ import pandas as pd
 We also need data to work with loaded into a DataFrame and it's helpful to look at a few rows to remember what's there.
 
 ~~~
-df = pd.read_csv("../data/SAFI_clean.csv")
+df = pd.read_csv("data/SAFI_clean.csv")
 df.head()
 ~~~
 {: .language-python}
@@ -46,9 +46,8 @@ Next, we can plot the a histogram of a variable
 
 
 ~~~
-{: .language-python}
-df.rooms.hist(bins=4)
-~~~~~~
+safi_df['years_liv'].hist()
+~~~
 {: .language-python}
 
 ![png](output_4_1.png)
@@ -57,22 +56,17 @@ df.rooms.hist(bins=4)
 We can change the number of bins to make it look how we would like, for example
 
 ~~~
-{: .language-python}
-df.rooms.hist(bins=40)
-~~~~~~
-{: .language-python}
-
-![png](output_5_1.png)
-
-Pandas plottingn also works on groupbys
-
+safi_df['years_liv'].hist(bins=20)
 ~~~
 {: .language-python}
-df.groupby('respondent_wall_type').respondent_roof_type.hist()
-~~~~~~
-{: .language-python}
-![png](output_8_1.png)
 
+
+We can also specify the column as a parameter and a groupby column with the `by` keyword. there are a lot of keywords available to make it look better, we can see some of the most likely ones (as decided by pandas developers) by using <kbd>shift</kbd> + <kbd>tab<kbd>. Lets try `layout`, `figsize`, and `sharex`.
+
+~~~
+safi_df.hist(column='years_liv',by='village',layout=(1,3),figsize=(12,3),sharex=True)
+~~~
+{: .language-python}
 
 ## Scatter plot
 
@@ -108,11 +102,22 @@ A common use of the boxplot is to compare the statistical variations across a se
 The variables can be an independent series or columns of a Dataframe using the pandas plot method
 
 ~~~
-df = pd.DataFrame(np.random.normal(size=(100,5)), columns=list('ABCDE'))
-df.plot(kind = 'box', return_type='axes') # the return_type='axes' is only needed for forward compatibility
+safi_df.boxplot(by ='village',column=['buildings_in_compound'])
+~~~
+{:.language-python}
+
+We can make it look prettier with seaborn, much more easily than fixing components manually with matplotlib.
+~~~
+import seaborn as sns
+sns.boxplot(data=safi_df,x ='village',y='buildings_in_compound')
 ~~~
 {: .language-python}
 
+
+~~~
+sns.lmplot(x='years_farm', y='years_liv',data=safi_df,hue='village')
+~~~
+{: .language-python}
 
 ## Matplotlib
 
@@ -169,54 +174,11 @@ Using this same approach we can plot two sets of data on the same graph
 
 We will use a scatter plot to demonstrate some of the available features.
 
-For a scatter plot we need two sets of data points one for the x values
-and the other for the y values.
 
-
-
-~~~
-# Generate some date for 2 sets of points.
-x1 = pd.Series(np.random.rand(20) - 0.5 )
-y1 = pd.Series(np.random.rand(20) - 0.5 )
-
-x2 = pd.Series(np.random.rand(20) + 0.5 )
-y2 = pd.Series(np.random.rand(20) + 0.5 )
-
-
-
-# plot the points in a scatter plot
-plt.scatter(x1,y1, c='red', label='Red Range' )  # 'c' parameter is the colour and 'label' is the text for the legend
-plt.scatter(x2,y2, c='blue', label='Blue Range')
-
-plt.legend( loc=4 )  # the locations 1,2,3 and 4 are top-right, top-left, bottom-left and bottom-right
-# Show the graph with the two sets of points
-plt.show()
-~~~
-{: .language-python}
-
-In the call to the `scatter` method, the `label` parameter values are used by the _legend_.
-The `c` or `color` parameter can be set to any color matplotlib recognises. Full details of the available colours are available in the [matplotlib](http://matplotlib.org/api/colors_api.html) website. The [markers](http://matplotlib.org/api/markers_api.html) section will tell you what markers you can use instead of the default 'dots'. There is also an `s` (size) parameter which allows you to change the size of the marker.
-
-
-<!-- {% include exercise_output.html keyword="scattersize" %} -->
 
 {% include exercise_output.html keyword="niceplot" %}
 
 
-
-We can add a title to the above by adding the `title` parameter. However there are no parameters for adding the axis labels.
-To add labels we can use matplotlib directly.
-
-~~~
-df = pd.DataFrame(np.random.normal(size=(100,5)), columns=list('ABCDE'))
-df.plot(kind = 'box', return_type='axes')
-
-plt.title('Box Plot')
-plt.xlabel('xlabel')
-plt.ylabel('ylabel')
-plt.show()
-~~~
-{: .language-python}
 
 ## Saving a graph
 
