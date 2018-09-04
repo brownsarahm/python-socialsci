@@ -12,6 +12,8 @@ A complete set of Python operators can be found in the [official documentation](
 
 Example code:
 ~~~
+a = 8
+b = 3
 print("a =", a, "and b =" , b)
 print(a + b)      # addition
 print(a * b)      # multiplication

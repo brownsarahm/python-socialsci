@@ -8,4 +8,4 @@ solution: "Type 'print' into a code cell and then type `shift`+`tab`. The follow
 "
 ---
 
-Us help to find out what parameters can be provided for the print function and make notes for yourself.
+Use help to find out what parameters can be provided for the print function and make notes for yourself.
