@@ -37,7 +37,7 @@ import pandas as pd
 We also need data to work with loaded into a DataFrame and it's helpful to look at a few rows to remember what's there.
 
 ~~~
-df = pd.read_csv("data/SAFI_clean.csv")
+df = pd.read_csv("data/SAFI_full_shortname.csv")
 df.head()
 ~~~
 {: .language-python}
