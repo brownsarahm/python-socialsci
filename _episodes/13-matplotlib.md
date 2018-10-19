@@ -141,7 +141,7 @@ We can use matplotlib directly to produce a similar graph. In this case we need 
 
 We also have to explicitly call the `show()` function to produce the graph.
 
-## Saving PLots
+## Saving Plots
 
 ~~~
 plt.savefig("rooms.png")
