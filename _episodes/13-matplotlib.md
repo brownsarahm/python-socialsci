@@ -16,8 +16,8 @@ keypoints:
 
 ## Plotting in python
 
-There are a wide variety of ways to plot in python, like many programming languages.  Some do more of the design work for you and others let you customize the look of the plots and all of the little details yourself. `Pandas` has basic plots built into it that reduce the amount of syntax, if your data is already in a DataFrame.
-Matplotlib is a Python graphical library that can be used to produce a variety of different graph types, it is fully controllable down to basic elements and includes a module `pylab` that is somewhere in between (designed to feel like matlab plotting, if you happen to have done that before).
+There are a variety of ways to plot in python, like many programming languages.  Some of these options do more of the design work for you and others leave controlling the aesthetic of the plots and all of the little details yourself. First, we'll look at the one that's the least new syntax, then we'll use of of the more flexible ones to customize our plots in common ways for publication ready graphics. `Pandas` has basic plots built into it that reduce the amount of syntax, if your data is already in a DataFrame.
+Matplotlib is a Python graphical library that can be used to produce a variety of different graph types and is fully controllable down to basic elements.  
 
 
 The pandas library contains very tight integration with matplotlib. There are functions in pandas that automatically call matplotlib functions to produce graphs.
@@ -121,25 +121,42 @@ sns.lmplot(x='years_farm', y='years_liv',data=safi_df,hue='village')
 
 ## Matplotlib
 
-If we want to do more advanced or lower level things with our plots, we need to use matplotli directly, not through pandas.  First we need to import it.
+If we want to do more advanced or lower level things with our plots, we need to use matplotlib directly, not through pandas.  First we need to import it.
 
 
-The matplotlib library can be imported using any of the import techniques we have seen. As `pandas` is generally imported with `import pandas as pd`, you will find that `matplotlib` is most commonly imported with `import matplotlib.pylab as plt` where 'plt' is the alias.
-
-In addition to importing the library, in a Jupyter notebook environment we need to tell Jupyter that when we produce a graph we want it to be display the graph in a cell in the notebook just like any other results. To do this we use the `%matplotlib inline` directive.  
-
-If you forget to do this, you will have to add `plt.show()` to see the graphs.
+The matplotlib library can be imported using any of the import techniques we have seen. `Matplotlib` includes a module `pylab` that offers an interface between that of base matplolib and pandas in terms of the level of the components that you have to specify that is most often the level at which the packages is used (it's also designed to feel like MATLAB plotting, if you happen to have done that before).
+As `pandas` is generally imported with `import pandas as pd`, you will find that `matplotlib` is most commonly imported with `import matplotlib.pylab as plt` where 'plt' is the alias.
 
 ~~~
 import matplotlib.pyplot as plt
 ~~~
 {: .language-python}
 
-Internally the pandas 'plot' method has called the 'bar' method of matplotlib and provided a set of parameters, including the pandas.Series s to generate the graph.
+In addition to importing the library, in a Jupyter notebook environment we need to tell Jupyter that when we produce a graph we want it to be display the graph in a cell in the notebook just like any other results. To do this we use the `%matplotlib inline` ipython magic function.  
+
+Without this optional magic, or in a base python interpreter matplotlib requires calling the `plt.show()` function to see the graphs.
+
+~~~
+%matplotlib inline
+~~~
+{: .language-python}
+
+Above, internally the pandas 'plot' method has called the 'bar' method of matplotlib and provided a set of parameters, including the pandas.Series s to generate the graph. 
 
 We can use matplotlib directly to produce a similar graph. In this case we need to pass two parameters, the number of bars we need and the pandas Series holding the values.
 
 We also have to explicitly call the `show()` function to produce the graph.
+
+In general most graphs can be broken down into a series of elements which, although typically related in some way, can all exist independently of each other. This allows us to create the graph component by component.
+
+The labels (if any) on the x and y axis are independent of the data values being represented. The title and the legend are also independent objects within the overall graph.
+
+In Matplotlib you create the graph by providing values for all of the individual components you choose to include. When you are ready, you call the `show` function.
+
+Using this same approach we can plot two sets of data on the same graph
+
+We will use a scatter plot to demonstrate some of the available features.
+
 
 ## Saving Plots
 
@@ -164,19 +181,10 @@ plt.show()
 ~~~
 {: .language-python}
 
-In general most graphs can be broken down into a series of elements which, although typically related in some way, can all exist independently of each other. This allows us to create the graph in a rather piecemeal fashion.
-
-The labels (if any) on the x and y axis are independent of the data values being represented. The title and the legend are also independent objects within the overall graph.
-
-In matplotlib you create the graph by providing values for all of the individual components you choose to include. When you are ready, you call the `show` function.
-
-Using this same approach we can plot two sets of data on the same graph
-
-We will use a scatter plot to demonstrate some of the available features.
 
 
 
-{% include exercise_output.html keyword="niceplot" %}
+
 
 
 
@@ -195,3 +203,6 @@ plt.ylabel('ylabel')
 plt.savefig('boxplot_from_df.pdf')
 ~~~
 {: .language-python}
+
+
+{% include exercise_output.html keyword="niceplot" %}
