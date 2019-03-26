@@ -121,10 +121,7 @@ sns.lmplot(x='years_farm', y='years_liv',data=safi_df,hue='village')
 
 ## Matplotlib
 
-If we want to do more advanced or lower level things with our plots, we need to use matplotlib directly, not through pandas.  First we need to import it.
-
-
-The matplotlib library can be imported using any of the import techniques we have seen. `Matplotlib` includes a module `pylab` that offers an interface between that of base matplolib and pandas in terms of the level of the components that you have to specify that is most often the level at which the packages is used (it's also designed to feel like MATLAB plotting, if you happen to have done that before).
+If we want to do more advanced or lower level things with our plots, we need to use matplotlib directly, not through pandas.  First we need to import it. The matplotlib library can be imported using any of the import techniques we have seen. `Matplotlib` includes a module `pylab` that offers an interface between that of base matplolib and pandas in terms of the level of the components that you have to specify that is most often the level at which the packages is used (it's also designed to feel like MATLAB plotting, if you happen to have done that before).
 As `pandas` is generally imported with `import pandas as pd`, you will find that `matplotlib` is most commonly imported with `import matplotlib.pylab as plt` where 'plt' is the alias.
 
 ~~~
@@ -141,7 +138,7 @@ Without this optional magic, or in a base python interpreter matplotlib requires
 ~~~
 {: .language-python}
 
-Above, internally the pandas 'plot' method has called the 'bar' method of matplotlib and provided a set of parameters, including the pandas.Series s to generate the graph. 
+Above, internally the pandas 'plot' method has called the 'bar' method of matplotlib and provided a set of parameters, including the pandas.Series s to generate the graph.
 
 We can use matplotlib directly to produce a similar graph. In this case we need to pass two parameters, the number of bars we need and the pandas Series holding the values.
 
@@ -158,15 +155,9 @@ Using this same approach we can plot two sets of data on the same graph
 We will use a scatter plot to demonstrate some of the available features.
 
 
-## Saving Plots
+## Preparing Plots for Publication
 
-~~~
-plt.savefig("rooms.png")
-plt.savefig("rooms.pdf", bbox_inches="tight", dpi=600)
-plt.show()
-~~~
-{: .language-python}
-
+To use our plots in a paper, we need to ensure that they are fully labeled and be able to save them for use outside of our notebook or interpreter. Next we'll look at how to label and save our plots.
 
 For the Histogram, each data point is allocated to 1 of 10 (by default) equal 'bins' of equal size (range of numbers) which are indicated along the x axis and the number of points (frequency) is shown on the y axis.
 
@@ -181,26 +172,13 @@ plt.show()
 ~~~
 {: .language-python}
 
-
-
-
-
-
-
-
-## Saving a graph
-
 If you wish to save your graph as an image you can do so using the `savefig()` function. The image can be saved as a pdf, jpg or png file by changing the file extension.
 
+For example,
 ~~~
-df = pd.DataFrame(np.random.normal(size=(100,5)), columns=list('ABCDE'))
-df.plot(kind = 'box', return_type='axes')
-
-plt.title('Box Plot')
-plt.xlabel('xlabel')
-plt.ylabel('ylabel')
-#plt.show()
-plt.savefig('boxplot_from_df.pdf')
+plt.savefig("rooms.png")
+plt.savefig("rooms.pdf", bbox_inches="tight", dpi=600)
+plt.show()
 ~~~
 {: .language-python}
 
