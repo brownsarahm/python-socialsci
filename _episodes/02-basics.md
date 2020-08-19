@@ -79,7 +79,7 @@ print(type(s))
 ~~~
 {: .output}
 
-There are many more data types available, a full list is available in the [Python documentation](https://docs.python.org/3/).
+There are many more data types available, a full list is available in the [Python documentation](https://docs.python.org/3/library/datatypes.html).
 We will be looking a few of them later on.
 
 ## Arithmetic operations
@@ -337,7 +337,7 @@ print(dir(mystring))
 ~~~
 {: .output}
 
-The methods that you can use are those that do NOT start with `__`.
+The methods starting with `__` are special or magic methods which are not normally used.
 
 Some examples of the methods are given below. We will use others when we start reading files.
 
@@ -386,8 +386,9 @@ True
 {: .output}
 
 If you need to refer to a specific element (character) in a string,
-you can do so by specifying the index of the character in '[]'
-you can also use indexing to select a substring of the string.
+you can do so by specifying the index of the character in `[]`
+you can also use indexing to select a substring of the string. In Python, 
+indexes begin with `0` (see [Index Operator: Working with the Characters of a String](http://interactivepython.org/runestone/static/CS152f17/Strings/IndexOperatorWorkingwiththeCharactersofaString.html) for a visual).
 
 ~~~
 myString = "The quick brown fox"
