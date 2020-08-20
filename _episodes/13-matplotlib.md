@@ -37,8 +37,8 @@ import pandas as pd
 We also need data to work with loaded into a DataFrame and it's helpful to look at a few rows to remember what's there.
 
 ~~~
-df = pd.read_csv("data/SAFI_full_shortname.csv")
-df.head()
+safi_df = pd.read_csv("data/SAFI_full_shortname.csv")
+safi_df.head()
 ~~~
 {: .language-python}
 
@@ -78,8 +78,8 @@ We will generate two sets of points and plot them on the same graph.
 We will also add other common features like a title, a legend and labels on the x and y axis.
 
 ~~~
-{: .language-python}
-df.plot.scatter(x='gps:Latitude', y='gps:Longitude', c='gps:Altitude', colormap="viridis", figsize=[4,4])
+
+safi_df.plot.scatter(x='gps:Latitude', y='gps:Longitude', c='gps:Altitude', colormap="viridis", figsize=[4,4])
 ~~~~~~
 {: .language-python}
 
@@ -87,7 +87,7 @@ df.plot.scatter(x='gps:Latitude', y='gps:Longitude', c='gps:Altitude', colormap=
 
 
 
-{% include exercise_output.html keyword="pdplot" %}
+{% include exercise_output.html keyword="plots" %}
 
 
 
