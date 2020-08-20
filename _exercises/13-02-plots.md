@@ -1,6 +1,6 @@
 ---
 layout: exercise
-keyword: "pdplot"
+keyword: "plots"
 episode: 13-plotting-pandas
 solution: "TODO
 "
